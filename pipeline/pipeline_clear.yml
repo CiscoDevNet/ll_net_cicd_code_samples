@@ -7,12 +7,12 @@
     - name: docker-compose down the Pipeline
       shell: docker-compose down
       args:
-        chdir: ~/ciscolive_workshops/devnet-2203/pipeline
+        chdir: ~/ll_net_cicd_code_samples/pipeline
         executable: /bin/bash
 
     - name: Delete the Repo
-      shell: rm -Rf ciscolive_workshops/
+      shell: rm -Rf ll_net_cicd_code_samples/
       args:
         chdir: ~/
         executable: /bin/bash
-        removes: ~/ciscolive_workshops
+        removes: ~/ll_net_cicd_code_samples
