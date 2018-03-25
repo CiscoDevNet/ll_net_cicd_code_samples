@@ -1,19 +1,19 @@
 version: '2'
 services:
-  # nginx:
-  #   image: nginx
-  #   links:
-  #     - gogs:gogs
-  #     - drone-server:drone-server
-  #   volumes:
-  #     - ./data/nginx/conf.d:/etc/nginx/conf.d
-  #     - ./data/nginx/ssl:/etc/nginx/ssl
-  #   ports:
-  #     - 80:80
-  #     - 443:443
-  #   depends_on:
-  #     - gogs
-  #     - drone-server
+  nginx:
+    image: nginx
+    links:
+      - gogs:gogs
+      - drone-server:drone-server
+    volumes:
+      - ./data/nginx/conf.d:/etc/nginx/conf.d
+      - ./data/nginx/ssl:/etc/nginx/ssl
+    ports:
+      - 80:80
+      - 443:443
+    depends_on:
+      - gogs
+      - drone-server
 
   gogs:
     image: "gogs/gogs:0.9.141"
@@ -23,6 +23,8 @@ services:
       - 3000:3000
     links:
       - drone-server:drone-server
+      - drone-agent:drone-agent
+
 
   drone-server:
     image: drone/drone:0.7
@@ -37,7 +39,7 @@ services:
       - DRONE_GOGS_URL=http://gogs:3000
       - DRONE_GOGS_SKIP_VERIFY=true
       - DRONE_SECRET=BuildFun
-      - DRONE_HOST=http://drone:8000
+      - DRONE_HOST=http://10.10.20.20
 
   drone-agent:
     image: drone/drone:0.7
