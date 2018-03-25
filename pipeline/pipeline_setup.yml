@@ -28,23 +28,10 @@
   gather_facts: no
 
   tasks:
-    - name: Clone repo
-      shell: git clone https://github.com/hpreston/ciscolive_workshops
-      args:
-        chdir: ~/
-        executable: /bin/bash
-        creates: ~/ciscolive_workshops
-
-    - name: Update repo
-      shell: git pull
-      args:
-        chdir: ~/ciscolive_workshops
-        executable: /bin/bash
-
     - name: docker-compose Up the Pipeline
       shell: docker-compose up -d
       args:
-        chdir: ~/ciscolive_workshops/devnet-2203/pipeline
+        chdir: ~/ll_net_cicd_code_samples/pipeline
         executable: /bin/bash
 
 - name: Pre-Pull Docker Images for Lab
