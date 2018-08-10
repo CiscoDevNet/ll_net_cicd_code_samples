@@ -34,9 +34,10 @@
         enabled: no
 
     - name: Restart docker
-      service: docker
-      state: restarted
-      enabled: yes 
+      service:
+        name: docker
+        state: restarted
+        enabled: yes 
 
 - name: Start Lab Pipeline
   hosts: devbox
