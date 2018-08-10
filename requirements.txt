@@ -1,1 +1,1 @@
-virlutils==0.4
+virlutils==0.8.4
