@@ -23,6 +23,22 @@
     - name: Test docker-compose version
       shell: docker-compose --version
 
+- name: Fix firewall conflicts
+  hosts: devbox
+
+  tasks:
+    - name: Disable firewalld
+      service:
+        name: firewalld
+        state: stopped
+        enabled: no
+
+    - name: Restart docker
+      service:
+        name: docker
+        state: restarted
+        enabled: yes 
+
 - name: Start Lab Pipeline
   hosts: devbox
   gather_facts: no

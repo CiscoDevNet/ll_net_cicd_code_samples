@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <topology xmlns="http://www.cisco.com/VIRL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" schemaVersion="0.95" xsi:schemaLocation="http://www.cisco.com/VIRL https://raw.github.com/CiscoVIRL/schema/v0.95/virl.xsd">
     <extensions>
+        <entry key="management_lxc" type="Boolean">false</entry>
         <entry key="management_network" type="String">flat</entry>
     </extensions>
     <node name="prod-IOSv-1" type="SIMPLE" subtype="IOSv" location="109,81" vmImage="IOSv" vmFlavor="IOSv" ipv4="192.168.0.1">
