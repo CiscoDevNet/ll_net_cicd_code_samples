@@ -1,2 +1,5 @@
+[all:vars]
+ansible_python_interpreter="/usr/bin/python2.7"
+
 [devbox]
-10.10.20.20 ansible_user=root ansible_password=Admin_1234! ansible_host=10.10.20.20 ansible_python_interpreter="/usr/bin/env python"
+10.10.20.20 ansible_user=root ansible_password=Admin_1234! ansible_host=10.10.20.20
